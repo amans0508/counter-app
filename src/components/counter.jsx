@@ -32,3 +32,5 @@ class Counter extends Component {
 }
 
 export default Counter;
+
+//Truesy and Falsy in conditional rendering
