@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Counter from "./counter";
 
-class Counters extends Component {
+class counter extends Component {
   state = {
-    Counters: [
+    counter: [
       { id: 1, value: 4 },
       { id: 2, value: 0 },
       { id: 3, value: 0 },
@@ -11,17 +11,21 @@ class Counters extends Component {
     ],
   };
 
+  handleIncrement = () => {
+    console.log("Increment Happening");
+  };
+
   handleReset = () => {
-    const Counters = this.state.Counters.map((c) => {
+    const counter = this.state.counter.map((c) => {
       c.value = 0;
       return c;
     });
-    this.setState({ Counters });
+    this.setState({ counter });
   };
 
   handleDelete = (counterID) => {
-    const Counters = this.state.Counters.filter((c) => c.id !== counterID);
-    this.setState({ Counters: Counters });
+    const counter = this.state.counter.filter((c) => c.id !== counterID);
+    this.setState({ counter: counter });
   };
 
   render() {
@@ -33,10 +37,11 @@ class Counters extends Component {
         >
           Reset
         </button>
-        {this.state.Counters.map((counter) => (
+        {this.state.counter.map((counter) => (
           <Counter
             key={counter.id}
             onDelete={this.handleDelete}
+            onIncrement={this.handleIncrement}
             counter={counter}
             selected
           ></Counter>
@@ -46,4 +51,4 @@ class Counters extends Component {
   }
 }
 
-export default Counters;
+export default counter;
