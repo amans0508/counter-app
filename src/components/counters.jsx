@@ -11,7 +11,7 @@ class counter extends Component {
     ],
   };
 
-  handleIncrement = () => {
+  handleIncrement = (counter) => {
     console.log("Increment Happening");
   };
 
