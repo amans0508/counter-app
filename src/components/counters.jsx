@@ -12,7 +12,7 @@ class Counters extends Component {
   };
 
   handleReset = () => {
-    this.state.Counters.map((c) => {
+    const Counters = this.state.Counters.map((c) => {
       c.value = 0;
       return c;
     });
