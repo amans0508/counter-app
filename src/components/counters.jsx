@@ -3,7 +3,7 @@ import Counter from "./counter";
 
 class counter extends Component {
   state = {
-    counter: [
+    counters: [
       { id: 1, value: 4 },
       { id: 2, value: 0 },
       { id: 3, value: 0 },
@@ -12,11 +12,15 @@ class counter extends Component {
   };
 
   handleIncrement = (counter) => {
-    console.log("Increment Happening");
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+    counters[index] = { ...counter };
+    counters[index].value++;
+    this.setState({ counters });
   };
 
   handleReset = () => {
-    const counter = this.state.counter.map((c) => {
+    const counter = this.state.counters.map((c) => {
       c.value = 0;
       return c;
     });
@@ -24,8 +28,8 @@ class counter extends Component {
   };
 
   handleDelete = (counterID) => {
-    const counter = this.state.counter.filter((c) => c.id !== counterID);
-    this.setState({ counter: counter });
+    const counter = this.state.counters.filter((c) => c.id !== counterID);
+    this.setState({ counters: counter });
   };
 
   render() {
@@ -37,7 +41,7 @@ class counter extends Component {
         >
           Reset
         </button>
-        {this.state.counter.map((counter) => (
+        {this.state.counters.map((counter) => (
           <Counter
             key={counter.id}
             onDelete={this.handleDelete}
