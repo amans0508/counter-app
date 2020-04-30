@@ -5,6 +5,7 @@ import NavBar from "./components/navbar";
 
 class App extends Component {
   constructor() {
+    super();
     console.log("Mounting Phase");
   }
 
