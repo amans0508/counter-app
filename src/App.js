@@ -22,16 +22,16 @@ class App extends Component {
   };
 
   handleReset = () => {
-    const counter = this.state.counters.map((c) => {
+    const counters = this.state.counters.map((c) => {
       c.value = 0;
       return c;
     });
-    this.setState({ counter });
+    this.setState({ counters });
   };
 
   handleDelete = (counterID) => {
-    const counter = this.state.counters.filter((c) => c.id !== counterID);
-    this.setState({ counters: counter });
+    const counters = this.state.counters.filter((c) => c.id !== counterID);
+    this.setState({ counters });
   };
 
   render() {
@@ -44,7 +44,7 @@ class App extends Component {
         ></NavBar>
         <main className="container">
           <Counters
-            Counter={this.state.counters}
+            counter={this.state.counters}
             onDelete={this.handleDelete}
             onReset={this.handleReset}
             onIncrement={this.handleIncrement}

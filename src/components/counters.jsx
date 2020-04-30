@@ -1,21 +1,19 @@
 import React, { Component } from "react";
 import Counter from "./counter";
 
-class counter extends Component {
+class Counters extends Component {
   render() {
+    const { onReset, onDelete, onIncrement } = this.props;
     return (
       <div>
-        <button
-          className="btn-primary btn-small m-2"
-          onClick={this.props.onReset}
-        >
+        <button className="btn-primary btn-small m-2" onClick={onReset}>
           Reset
         </button>
-        {this.props.Counter.map((counter) => (
+        {this.props.counter.map((counter) => (
           <Counter
             key={counter.id}
-            onDelete={this.props.onDelete}
-            onIncrement={this.props.onIncrement}
+            onDelete={onDelete}
+            onIncrement={onIncrement}
             counter={counter}
             selected
           ></Counter>
@@ -25,4 +23,4 @@ class counter extends Component {
   }
 }
 
-export default counter;
+export default Counters;
