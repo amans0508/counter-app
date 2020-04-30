@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Counter from "./counter";
-
 class Counters extends Component {
   render() {
     const { onReset, onDelete, onIncrement, counter } = this.props;
