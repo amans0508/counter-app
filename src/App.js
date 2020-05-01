@@ -32,7 +32,7 @@ class App extends Component {
 
   handleDecrement = (counter) => {
     const counters = [...this.state.counters];
-    const index = counter.indexOf(counter);
+    const index = counters.indexOf(counter);
     counters[index] = { ...counter };
     counters[index].value--;
     this.setState({ counters });
@@ -55,12 +55,13 @@ class App extends Component {
     console.log("Render");
     return (
       <React.Fragment>
-        <NavBar
-          totalCounters={
-            this.state.counters.filter((c) => c.value !== 0).length
-          }
-        ></NavBar>
         <main className="container">
+          <NavBar
+            totalCounters={
+              this.state.counters.filter((c) => c.value !== 0).length
+            }
+          ></NavBar>
+
           <Counters
             counter={this.state.counters}
             onDelete={this.handleDelete}
